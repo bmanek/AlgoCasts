@@ -36,7 +36,11 @@
 
 // Solution 2
 function anagrams(stringA, stringB) {
+  return clean(stringA) === clean(stringB)
+}
 
+function clean(str) {
+  return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("")
 }
 
 module.exports = anagrams;
