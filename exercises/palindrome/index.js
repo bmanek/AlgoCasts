@@ -33,4 +33,6 @@ function palindrome(str) {
   })
 }
 
+palindrome("hello dolly")
+
 module.exports = palindrome;
