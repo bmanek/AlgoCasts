@@ -35,7 +35,12 @@
 
 // solution 2 (RegEx)
 function vowels(str) {
-  
+  // regex w/in /'s, g is option to continue past match, and i means case-
+  // insensitive
+
+  // NB: .match() returns null if no matches are found. ternary handles this
+  const matches = str.match(/[aeiou]/gi)
+  return matches ? matches.length : 0
 }
 
 
