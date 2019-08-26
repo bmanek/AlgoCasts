@@ -33,6 +33,20 @@ class LinkedList {
   getFirst() {
     return this.head
   }
+
+  getLast() {
+    if (!this.head) {
+      return null
+    }
+    let node = this.head
+    while (node) {
+      if (!node.next) {
+        return node
+      }
+      node = node.next
+    }
+  }
+
 }
 
 
@@ -53,4 +67,15 @@ module.exports = { Node, LinkedList };
 //   }
 //   return counter
 //
+// }
+
+// initial getLast(): whoops, another infinite while loop...
+// getLast() {
+//   let node = this.head
+//   while (node) {
+//     if (node.next !== null) {
+//       node = node.next
+//     }
+//     return node
+//   }
 // }
