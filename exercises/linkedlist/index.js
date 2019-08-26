@@ -18,13 +18,35 @@ class LinkedList {
     const node = new Node(data, this.head)
     this.head = node
   }
+
+  size() {
+    let counter = 0
+    let node = this.head
+
+    while (node) {
+      counter++
+      node = node.next
+    }
+    return counter
+  }
 }
+
 
 module.exports = { Node, LinkedList };
 
-// initial: create new Node w/ passed in data, unsure how to link pre-existing
-// node/head to new head :: well shit, I was *close*
+// initial insertFirst(): create new Node w/ passed in data, unsure how to link
+// pre-existing node/head to new head :: well shit, I was *close*
 
 // insertFirst(data) {
 //   data = new Node(data, LinkedList.head)
+// }
+
+// initial size():
+// size() {
+//   let counter = 0
+//   if (this.head || this.next) {
+//     counter += 1
+//   }
+//   return counter
+//
 // }
