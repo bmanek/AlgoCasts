@@ -113,25 +113,45 @@ class LinkedList {
 // }
 
 // official solution
-getAt(index) {
-  // 'while (node)' on 124 effectively does the work of lines 118-119. They're
-  // commented out, but included to demonstrate/clarify the redundancy
-  // if (!this.head) {
-  //   return null
-  // }
-  let counter = 0
-  let node = this.head
-  while (node) {
-    if (counter === index) {
-      return node
+  getAt(index) {
+    // 'while (node)' on 124 effectively does the work of lines 118-119. They're
+    // commented out, but included to demonstrate/clarify the redundancy
+    // if (!this.head) {
+    //   return null
+    // }
+    let counter = 0
+    let node = this.head
+    while (node) {
+      if (counter === index) {
+        return node
+      }
+      counter++
+      node = node.next
     }
-    counter++
-    node = node.next
+    return null
   }
-  return null
-}
 
+// attempt
+  removeAt(index) {
+    index
+    if (!this.head) {
+      return null
+    }
 
+    if (index === 0) {
+      return this.removeFirst()
+    }
+
+    if (index > (this.size() - 1)) {
+      return null
+    }
+
+    else {
+      let eraser = this.getAt(index).next
+      let prev = this.getAt(index - 1)
+      prev.next = eraser
+    }
+  }
 
 }
 
@@ -186,3 +206,20 @@ module.exports = { Node, LinkedList };
 //     }
 //   }
 // }
+
+// solution removeAt()
+removeAt(index) {
+  if (!this.head) {
+    return
+  }
+  if (index === 0) {
+    this.head = this.head.next
+    return
+  }
+  const previous = this.getAt(index - 1)
+  if (!previous || !previous.next) {
+    return
+  }
+  previous.next = previous.next.next
+
+}
