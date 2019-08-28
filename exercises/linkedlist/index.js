@@ -76,6 +76,62 @@ class LinkedList {
     }
     previous.next = null
   }
+// attempt
+  insertLast(data) {
+    let current = this.getLast()
+    let inserted = new Node(data)
+    if (!this.head) {
+      this.head = inserted
+    } else {
+      current.next = inserted
+    }
+  }
+// alt solution
+// insertLast(data) {
+//   const last = this.getLast()
+//
+//   if (last) {
+//     last.next = new Node(data)
+//   } else {
+//     this.head = new Node(data)
+//   }
+// }
+
+// attempt
+// getAt(index) {
+//   let size = this.size()
+//   if (index > size) return null
+//   let counter = 0
+//   let node = this.head
+//   if (node) {
+//     while (counter < index) {
+//       node = node.next
+//       counter++
+//     }
+//     return node
+//   }
+// }
+
+// official solution
+getAt(index) {
+  // 'while (node)' on 124 effectively does the work of lines 118-119. They're
+  // commented out, but included to demonstrate/clarify the redundancy
+  // if (!this.head) {
+  //   return null
+  // }
+  let counter = 0
+  let node = this.head
+  while (node) {
+    if (counter === index) {
+      return node
+    }
+    counter++
+    node = node.next
+  }
+  return null
+}
+
+
 
 }
 
