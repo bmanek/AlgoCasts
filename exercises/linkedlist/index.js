@@ -217,7 +217,7 @@ class LinkedList {
       counter++
     }
   }
-
+// review generator methods
   *[Symbol.iterator]() {
     let node = this.head
     while (node) {
