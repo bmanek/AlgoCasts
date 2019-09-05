@@ -48,6 +48,41 @@ class Node {
   }
 }
 
-class Tree {}
+class Tree {
+  constructor() {
+    this.root = null
+  }
+
+// initial. Super tired, super lazy
+  // traverseBF(fn) {
+  //   let holder = []
+  //   holder.push(this.head)
+  //   while (this.head.children) {
+  //     holder.push(children)
+  //   }
+  // }
+
+// actual
+  traverseBF(fn) {
+    const arr = [this.root]
+    while (arr.length) {
+      const node = arr.shift()
+      // ln71 won't work; it'd return a nested array. No bueno
+      // arr.push(node.children)
+
+      // one way around that...
+      // for (let child of node.children) {
+      //   arr.push(child)
+      // }
+
+      // ...and another.  The spread operator takes every element of
+      //  node.children, which are then pushed to arr.
+      // Spread grabs each element individually, & not whole array structure
+      arr.push(...node.children)
+      fn(node)
+    }
+
+  }
+}
 
 module.exports = { Tree, Node };
