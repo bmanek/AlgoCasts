@@ -83,6 +83,33 @@ class Tree {
     }
 
   }
+
+  traverseDF(fn) {
+    // creates the array for traversal, holds the root node at start
+    const arr = [this.root]
+    // while there is something in the array...
+    while (arr.length) {
+      // remove the first node in the array...
+      const node = arr.shift()
+
+      // and add that node's children to the (BF:end DF:start) of the array...
+      arr.unshift(...node.children)
+
+      // ...and call the function passed into traverseDF with the node we
+      // shifted out
+      fn(node)
+    }
+  }
 }
+
+// thinking thru BF vs. DF. Didn't implement a DF solution at this point
+
+// in BF, you go thru the root node, add it's children to the end of the array
+// each node in the array is checked for children, then removed.
+// the function that was passed into traverse() accepts the removed node as arg
+
+// in DF, you go thru the root node, and it checks for children.
+// If there is a child, proceed to child. If no child, add the siblings to arr.
+// if empty, return to parent's sibling.
 
 module.exports = { Tree, Node };
