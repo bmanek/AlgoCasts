@@ -17,4 +17,6 @@ test('fromLast returns the node n elements from the end', () => {
   l.insertLast('e');
 
   expect(fromLast(l, 3).data).toEqual('b');
+  expect(fromLast(l, 4).data).toEqual('a');
+  expect(fromLast(l, 2).data).toEqual('c');
 });

@@ -11,6 +11,32 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+function fromLast(list, n) {
+  let play = list.head
+  let ffw = list.head
+
+  for (let ffwHeadStart = 0; ffwHeadStart <= n; ffwHeadStart++) {
+    ffw = ffw.next
+  }
+
+  // or, instead of for loop above:
+  // while (n > 0) {
+  //   ffw = ffw.next
+  //   n--
+  // }
+
+  while (ffw) {
+    play = play.next
+    ffw = ffw.next
+  }
+
+  // if you have lines 22-26 active, change while loop in 28-31 to:
+  // while (ffw.next) {
+  //   play = play.next
+  //   ffw = ffw.next
+  // }
+
+  return play
+}
 
 module.exports = fromLast;
