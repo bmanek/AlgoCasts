@@ -10,7 +10,43 @@
 // on the tree class.  Each method should accept a
 // function that gets called with each element in the tree
 
-class Node {}
+
+// First pass. Totally spaced on how to do things the description described.
+// class Node {
+//   constructor(data){
+//     data = this.data
+//     children = []
+//   }
+//
+//   add(data) {
+//     return new Node(data)
+//   }
+//
+//   remove() {
+//
+//   }
+// }
+
+class Node {
+  constructor(data) {
+    this.data = data
+    this.children = []
+  }
+
+  add(data) {
+    const node = new Node(data)
+    this.children.push(node)
+
+    // Or, the above body written as a one-liner:
+    // this.children.push(new Node(data))
+  }
+
+  remove(data) {
+    this.children = this.children.filter(node => {
+       return node.data !== data
+    })
+  }
+}
 
 class Tree {}
 
